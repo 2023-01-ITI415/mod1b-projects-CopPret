@@ -68,3 +68,28 @@ public class AppleTree : MonoBehaviour
     }
 
 }
+
+public class AppleTree : MonoBehaviour {
+
+    void Start () {
+
+        // Dropping apples every second
+
+        Invoke( "DropApple", 2f );
+
+    }
+
+    void DropApple() {
+
+        GameObject apple = Instantiate<GameObject;
+        
+        apple.transform.position = transform.position;
+
+        Invoke( "DropApple", secondsBetweenAppleDrop);
+
+    }    
+
+void Update () {}
+
+    }
+}
