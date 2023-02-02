@@ -12,7 +12,7 @@ public class AppleTree : MonoBehaviour
 
     // Speed at which the AppeTree moves
 
-    public float speed = 1f;
+    public float speed = 10f;
 
     // Distance where AppleTree turns around
 
@@ -20,7 +20,7 @@ public class AppleTree : MonoBehaviour
 
     // Chance that the AppleTree will change direction
 
-    public float chanceToChangeDirection
+    public float chanceToChangeDirection = 0.2f;
 
     // Rate at which Apples will be instantiate
 
@@ -44,5 +44,27 @@ public class AppleTree : MonoBehaviour
         transform.position = pos;
 
         // Changing Direction
+
+        if ( pos.x < -leftAndRightEdge ) {
+
+            speed = Mathf.Abs(speed); // Move right
+
+        } else if ( pos.x > leftAndRightEdge ) {
+
+            speed = -Mathf.Abs(speed);// Move left
+
+        }
     }
+
+    void FixedUpdate() {
+        
+        // Changing Direction Randomly is now t
+
+        if ( Random.value < chanceToChangeDirection ) {
+            
+            speed *= -1; // Change direction
+            
+        }    
+    }
+
 }
